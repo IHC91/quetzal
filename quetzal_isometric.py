@@ -274,11 +274,26 @@ def _draw_elevation(svg, pos_2d, elev, offset_x, offset_y, label=""):
         )
 
 
+def _dn_to_nps(dn):
+    """Convierte DN a NPS (pulgadas)."""
+    tabla = {
+        "DN6": "NPS 1/8", "DN8": "NPS 1/4", "DN10": "NPS 3/8",
+        "DN15": "NPS 1/2", "DN20": "NPS 3/4", "DN25": "NPS 1",
+        "DN32": "NPS 1.1/4", "DN40": "NPS 1.1/2", "DN50": "NPS 2",
+        "DN65": "NPS 2.1/2", "DN80": "NPS 3", "DN100": "NPS 4",
+        "DN125": "NPS 5", "DN150": "NPS 6", "DN200": "NPS 8",
+        "DN250": "NPS 10", "DN300": "NPS 12", "DN350": "NPS 14",
+        "DN400": "NPS 16", "DN450": "NPS 18", "DN500": "NPS 20",
+        "DN600": "NPS 24",
+    }
+    return tabla.get(dn, dn)
+
+
 def _draw_bom_table(svg, bom_data):
     """Dibuja tabla de lista de materiales."""
-    x0, y0 = 15, PAGE_H - 110
-    col_w = [30, 55, 55, 35, 35, 35, 35, 40]
-    headers = ["ITEM", "TIPO", "TAMAÑO", "SCHED", "OD", "THK", "CANT", "MATERIAL"]
+    x0, y0 = 15, PAGE_H - 115
+    col_w = [25, 45, 40, 30, 30, 30, 25, 25, 45]
+    headers = ["ITEM", "TIPO", "DIÁMETRO", "NPS", "SCHED", "OD", "ESP", "CANT", "MATERIAL"]
     rows = []
 
     for i, item in enumerate(bom_data, 1):
@@ -319,10 +334,34 @@ def _draw_bom_table(svg, bom_data):
     sy = y0 + 38
     for row in rows:
         x = x0
+        # row = [item, type, size, nps, sched, od, esp, cant, material]
+        # Pero bom_data tiene [item, type, size, rating, od, thk, qty, material]
+        # Insert NPS entre size y rating
         for i, val in enumerate(row):
+            if i == 0:
+                display = val  # ITEM
+            elif i == 1:
+                display = val  # TIPO
+            elif i == 2:
+                display = val  # DIÁMETRO (DN)
+            elif i == 3:
+                display = _dn_to_nps(row[2])  # NPS
+            elif i == 4:
+                display = row[3]  # SCHED (before it was rating at index 3)
+            elif i == 5:
+                display = row[4]  # OD
+            elif i == 6:
+                display = row[5] if row[5] != "0.0" else "-"  # ESP (before THK)
+            elif i == 7:
+                display = row[6]  # CANT
+            elif i == 8:
+                display = row[7]  # MATERIAL
+            else:
+                display = val
+            
             svg.append(
                 f'<text x="{x+3}" y="{sy+10}" font-size="6.5" '
-                f'fill="#334155">{val}</text>'
+                f'fill="#334155">{display}</text>'
             )
             x += col_w[i]
         sy += 16
