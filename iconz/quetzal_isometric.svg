@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1e40af"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+  </defs>
+  <!-- Fondo redondeado -->
+  <rect width="64" height="64" rx="12" fill="url(#bg)"/>
+  <!-- Tubería isométrica -->
+  <g stroke="#ffffff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- línea horizontal -->
+    <line x1="12" y1="42" x2="36" y2="22"/>
+    <!-- línea vertical -->
+    <line x1="36" y1="22" x2="36" y2="10"/>
+    <!-- línea inclinada -->
+    <line x1="36" y1="22" x2="52" y2="30"/>
+    <!-- codo -->
+    <path d="M32,26 Q36,22 40,24" stroke-width="2"/>
+    <!-- flecha de dimensión -->
+    <line x1="15" y1="46" x2="38" y2="26" stroke="#fde68a" stroke-width="1" stroke-dasharray="2 2"/>
+    <line x1="10" y1="48" x2="12" y2="42" stroke="#fde68a" stroke-width="1.5"/>
+  </g>
+  <!-- cotas -->
+  <text x="22" y="40" fill="#fde68a" font-size="7" font-weight="bold">⌀ 6"</text>
+  <text x="38" y="14" fill="#fde68a" font-size="6">EL +1800</text>
+  <!-- icono página -->
+  <rect x="44" y="44" width="14" height="14" rx="2" fill="none" stroke="#fff" stroke-width="1.5" opacity="0.6"/>
+  <line x1="46" y1="48" x2="56" y2="48" stroke="#fff" stroke-width="0.8" opacity="0.6"/>
+  <line x1="46" y1="51" x2="56" y2="51" stroke="#fff" stroke-width="0.8" opacity="0.6"/>
+  <line x1="46" y1="54" x2="52" y2="54" stroke="#fff" stroke-width="0.8" opacity="0.6"/>
+</svg>

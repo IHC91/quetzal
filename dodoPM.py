@@ -614,3 +614,10 @@ FreeCAD.__dodoPMact__.setObjectName("PieTest")
 FreeCAD.__dodoPMact__.setShortcut(QtGui.QKeySequence("Z"))
 FreeCAD.__dodoPMact__.triggered.connect(PieMenuInstance.showAtMouse)
 mw.addAction(FreeCAD.__dodoPMact__)
+
+# ─── REGISTRO DE COMANDOS ISOMÉTRICOS ─────────────────────
+try:
+    from quetzal_isometric import register_commands
+    register_commands()
+except ImportError:
+    pass
