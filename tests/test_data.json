@@ -1,0 +1,161 @@
+{
+  "comment": "Datos sintéticos de tubería Quetzal para test del generador isométrico",
+  "pypeline": "LINEA_DE_PRUEBA_001",
+  "line_number": "06-PN-0100-A1A-001",
+  "service": "GAS COMBUSTIBLE",
+  "design_pressure": "150 PSI",
+  "design_temperature": "60 °C",
+  "fluido": "Gas Natural",
+  "piping_class": "CS-10",
+  "insulation": "NINGUNO",
+  "paint": "SSPC-PA1",
+  "flow_direction": "de E a W",
+
+  "components": [
+    {
+      "tag": "P-001",
+      "type": "Pipe",
+      "nps": "NPS 4",
+      "dn": "DN100",
+      "schedule": "SCH-STD",
+      "od_mm": 114.3,
+      "thk_mm": 6.02,
+      "material": "API 5L Gr.B",
+      "length_mm": 1500.0,
+      "cut_length_mm": 1488.0,
+      "start_coord": {"N": 1000.0, "E": 1000.0, "EL": 500.0},
+      "end_coord": {"N": 1000.0, "E": 2500.0, "EL": 500.0},
+      "direction": "E"
+    },
+    {
+      "tag": "E-001",
+      "type": "Elbow",
+      "nps": "NPS 4",
+      "dn": "DN100",
+      "schedule": "SCH-STD",
+      "od_mm": 114.3,
+      "thk_mm": 6.02,
+      "material": "A234 WPB",
+      "angle": 90,
+      "radius_mm": 152.4,
+      "position_coord": {"N": 1000.0, "E": 2500.0, "EL": 500.0},
+      "connection": "BW"
+    },
+    {
+      "tag": "P-002",
+      "type": "Pipe",
+      "nps": "NPS 4",
+      "dn": "DN100",
+      "schedule": "SCH-STD",
+      "od_mm": 114.3,
+      "thk_mm": 6.02,
+      "material": "API 5L Gr.B",
+      "length_mm": 2000.0,
+      "cut_length_mm": 1988.0,
+      "start_coord": {"N": 1000.0, "E": 2500.0, "EL": 500.0},
+      "end_coord": {"N": 1000.0, "E": 2500.0, "EL": 2500.0},
+      "direction": "UP"
+    },
+    {
+      "tag": "E-002",
+      "type": "Elbow",
+      "nps": "NPS 4",
+      "dn": "DN100",
+      "schedule": "SCH-STD",
+      "od_mm": 114.3,
+      "thk_mm": 6.02,
+      "material": "A234 WPB",
+      "angle": 90,
+      "radius_mm": 152.4,
+      "position_coord": {"N": 1000.0, "E": 2500.0, "EL": 2500.0},
+      "connection": "BW"
+    },
+    {
+      "tag": "P-003",
+      "type": "Pipe",
+      "nps": "NPS 4",
+      "dn": "DN100",
+      "schedule": "SCH-STD",
+      "od_mm": 114.3,
+      "thk_mm": 6.02,
+      "material": "API 5L Gr.B",
+      "length_mm": 3000.0,
+      "cut_length_mm": 2988.0,
+      "start_coord": {"N": 1000.0, "E": 2500.0, "EL": 2500.0},
+      "end_coord": {"N": 4000.0, "E": 2500.0, "EL": 2500.0},
+      "direction": "N"
+    },
+    {
+      "tag": "F-001",
+      "type": "Flange",
+      "nps": "NPS 4",
+      "dn": "DN100",
+      "schedule": "150#",
+      "od_mm": 228.6,
+      "material": "A105",
+      "facing": "RF",
+      "position_coord": {"N": 4000.0, "E": 2500.0, "EL": 2500.0}
+    },
+    {
+      "tag": "V-001",
+      "type": "Valve",
+      "nps": "NPS 4",
+      "dn": "DN100",
+      "schedule": "150# RF",
+      "od_mm": 114.3,
+      "material": "A216 WCB",
+      "valve_type": "Ball",
+      "length_mm": 250.0,
+      "position_coord": {"N": 4000.0, "E": 2500.0, "EL": 2500.0}
+    },
+    {
+      "tag": "F-002",
+      "type": "Flange",
+      "nps": "NPS 4",
+      "dn": "DN100",
+      "schedule": "150#",
+      "od_mm": 228.6,
+      "material": "A105",
+      "facing": "RF",
+      "position_coord": {"N": 4000.0, "E": 2500.0, "EL": 2500.0}
+    },
+    {
+      "tag": "P-004",
+      "type": "Pipe",
+      "nps": "NPS 4",
+      "dn": "DN100",
+      "schedule": "SCH-STD",
+      "od_mm": 114.3,
+      "thk_mm": 6.02,
+      "material": "API 5L Gr.B",
+      "length_mm": 2500.0,
+      "cut_length_mm": 2476.0,
+      "start_coord": {"N": 4000.0, "E": 2500.0, "EL": 2500.0},
+      "end_coord": {"N": 4000.0, "E": 2500.0, "EL": 0.0},
+      "direction": "DOWN"
+    }
+  ],
+
+  "welds": [
+    {"id": "W01", "type": "Shop", "between": ["P-001", "E-001"]},
+    {"id": "W02", "type": "Shop", "between": ["E-001", "P-002"]},
+    {"id": "W03", "type": "Field", "between": ["P-002", "E-002"]},
+    {"id": "W04", "type": "Field", "between": ["E-002", "P-003"]},
+    {"id": "W05", "type": "Field", "between": ["P-003", "F-001"]},
+    {"id": "W06", "type": "Field", "between": ["F-001", "V-001"]},
+    {"id": "W07", "type": "Field", "between": ["V-001", "F-002"]},
+    {"id": "W08", "type": "Shop", "between": ["F-002", "P-004"]}
+  ],
+
+  "bolts": [
+    {"size": "M16", "length_mm": 80, "qty": 16, "material": "ASTM A193 B7", "grade": "2H"},
+    {"size": "M20", "length_mm": 90, "qty": 8, "material": "ASTM A193 B7", "grade": "2H"}
+  ],
+
+  "gaskets": [
+    {"nps": "NPS 4", "type": "Spiral Wound", "material": "304SS/Graphite", "rating": "150#", "qty": 2}
+  ],
+
+  "line_number": "06-PN-0100-A1A-001",
+  "north_arrow": "N"
+}
